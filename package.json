@@ -1,0 +1,22 @@
+{
+  "name": "trenchvc-websocket-server",
+  "version": "1.0.0",
+  "description": "WebSocket signaling server for Trench VC",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["websocket", "webrtc", "signaling", "voice-chat"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^8.14.2",
+    "uuid": "^9.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
+
