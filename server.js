@@ -7,6 +7,20 @@ const { v4: uuidv4 } = require('uuid');
 const app = express();
 const server = http.createServer(app);
 
+// Health check endpoint for Render
+app.get('/', (req, res) => {
+  res.status(200).json({ 
+    status: 'ok', 
+    service: 'Trench VC WebSocket Server',
+    clients: clients.size,
+    uptime: process.uptime()
+  });
+});
+
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'healthy' });
+});
+
 // Serve static files (optional - not needed if frontend is on Vercel)
 // app.use(express.static('public'));
 
@@ -86,9 +100,10 @@ function broadcastToOthers(senderId, message) {
 }
 
 const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
+server.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Trench VC WebSocket server running on port ${PORT}`);
   console.log(`🎤 Ready for connections!`);
-  console.log(`📡 WebSocket URL: ws://localhost:${PORT}`);
+  console.log(`📡 WebSocket URL: ws://0.0.0.0:${PORT}`);
+  console.log(`✅ Health check available at http://0.0.0.0:${PORT}/health`);
 });
 
