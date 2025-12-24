@@ -24,21 +24,31 @@ Server will run on `http://localhost:3000`
 
 ## Deployment
 
-### Railway (Recommended)
+### Render (Recommended - Has render.yaml)
+
+**Option 1: Using render.yaml (Easiest)**
+1. Go to [render.com](https://render.com)
+2. New → Blueprint
+3. Connect your GitHub repository
+4. Render will auto-detect `render.yaml` and configure everything
+5. Click "Apply" - Done! 🎉
+
+**Option 2: Manual Setup**
+1. Go to [render.com](https://render.com)
+2. New → Web Service
+3. Connect GitHub repo
+4. Render will use `render.yaml` automatically
+5. Or manually set:
+   - Build Command: `npm install`
+   - Start Command: `node server.js`
+
+### Railway
 
 1. Go to [railway.app](https://railway.app)
 2. New Project → Deploy from GitHub
 3. Connect this folder/repo
 4. Set Start Command: `node server.js`
 5. Railway auto-detects Node.js and installs dependencies
-
-### Render
-
-1. Go to [render.com](https://render.com)
-2. New → Web Service
-3. Connect GitHub repo
-4. Build Command: `npm install`
-5. Start Command: `node server.js`
 
 ## Environment Variables
 
